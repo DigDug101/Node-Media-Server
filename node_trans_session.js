@@ -56,7 +56,7 @@ class NodeTransSession extends EventEmitter {
     const outputMuxingArgs = this.conf.muxerMapping || ['-c:v', vc, '-c:a', ac, '-f', 'tee', '-map', '0:a?', '-map', '0:v?'];
     let argv = ['-loglevel', 'level+debug', '-y', '-fflags', 'nobuffer', '-analyzeduration', analyzeDuration, '-i', inPath, ...outputMuxingArgs, mapStr];
     // // let argv = ['-y', '-fflags', 'nobuffer', '-analyzeduration', analyzeDuration, '-i', inPath, '-c:v', vc, '-c:a', ac, '-f', 'tee', '-map', '0:a?', '-map', '0:v?', mapStr];
-    let argv = ['-y', '-fflags', 'nobuffer', '-analyzeduration', analyzeDuration, '-i', inPath, '-c:v', vc, '-c:a', ac, '-f', 'tee', '-map', '0:a?', '-map', '0:v?', mapStr];
+    // let argv = ['-y', '-fflags', 'nobuffer', '-analyzeduration', analyzeDuration, '-i', inPath, '-c:v', vc, '-c:a', ac, '-f', 'tee', '-map', '0:a?', '-map', '0:v?', mapStr];
     Logger.ffdebug(argv.toString());
     this.ffmpeg_exec = spawn(this.conf.ffmpeg, argv);
     this.ffmpeg_exec.on('error', (e) => {
