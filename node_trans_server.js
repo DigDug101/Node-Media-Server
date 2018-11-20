@@ -13,7 +13,7 @@ const _ = require('lodash');
 const mkdirp = require('mkdirp');
 
 class NodeTransServer {
-  constructor(config) {   
+  constructor(config) {
     this.config = config;
     this.transSessions = new Map();
   }
@@ -61,6 +61,7 @@ class NodeTransServer {
       conf.port = this.config.rtmp.port;
       conf.ffmpeg = this.config.trans.ffmpeg;
       conf.analyzeDuration = this.config.trans.analyzeDuration;
+      conf.muxerMapping = this.config.trans.muxerMapping;
       conf.mediaroot = this.config.http.mediaroot;
       conf.streamPath = streamPath;
       conf.stream = stream;

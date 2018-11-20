@@ -49,7 +49,7 @@ class NodeTransSession extends EventEmitter {
     }
     mkdirp.sync(ouPath);
 
-     this.conf.muxerMapping = ['-filter_complex', '[0:v]split=2[s0][s1];[s0]scale=1280:-2[v0];[s1]scale=640:-2[v1]', '-map', '[v0]', '-map', '[v1]', '-map', '0:a?', '-c:v', 'libx264', '-preset', 'fast', '-profile:v', '-pix_fmt', 'yuv420p', 'baseline', '-b:v', '300k', '-c:a', 'aac', '-f', 'tee'];
+     // this.conf.muxerMapping = ['-filter_complex', '[0:v]split=2[s0][s1];[s0]scale=1280:-2[v0];[s1]scale=640:-2[v1]', '-map', '[v0]', '-map', '[v1]', '-map', '0:a?', '-c:v', 'libx264', '-preset', 'fast', '-profile:v', '-pix_fmt', 'yuv420p', 'baseline', '-b:v', '300k', '-c:a', 'aac', '-f', 'tee'];
 
      console.log("UPDATED");
      console.log("MUXERRRR", this.conf.muxerMapping);
