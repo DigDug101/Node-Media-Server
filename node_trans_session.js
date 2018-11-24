@@ -48,7 +48,10 @@ class NodeTransSession extends EventEmitter {
       Logger.log('[Transmuxing DASH] ' + this.conf.streamPath + ' to ' + ouPath + '/' + dashFileName);
     }
     mkdirp.sync(ouPath);
-    let argv = ['-y', '-fflags', 'nobuffer', '-analyzeduration', analyzeDuration, '-i', inPath, '-c:v', vc, '-c:a', ac, '-f', 'tee', '-map', '0:a?', '-map', '0:v?', mapStr];
+
+    const outputMuxingArgs = this.conf.muxerMapping || ['-c:v', vc, '-c:a', ac, '-f', 'tee', '-map', '0:a?', '-map', '0:v?'];
+    let argv = ['-loglevel', 'level+debug', '-y', '-fflags', 'nobuffer', '-analyzeduration', analyzeDuration, '-i', inPath, ...outputMuxingArgs, mapStr];
+
     Logger.ffdebug(argv.toString());
     this.ffmpeg_exec = spawn(this.conf.ffmpeg, argv);
 

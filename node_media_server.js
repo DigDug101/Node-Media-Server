@@ -75,10 +75,6 @@ class NodeMediaServer {
       });
     }).on('error', function (e) {
     });
-
-    // process.on('uncaughtException', function (err) {
-    //   Logger.error('uncaughtException', err);
-    // });
   }
 
   on(eventName, listener) {
