@@ -31,7 +31,6 @@ class NodeHttpServer {
 
     let app = Express();
 
-    // Move file fetching to nginx
     app.all(['*.m3u8', '*.ts', '*.mpd', '*.m4s', '*.mp4'], (req, res, next) => {
       res.setHeader('Access-Control-Allow-Origin', this.config.http.allow_origin);
       next();
