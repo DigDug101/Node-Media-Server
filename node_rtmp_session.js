@@ -1241,6 +1241,7 @@ class NodeRtmpSession {
           if (player instanceof NodeRtmpSession) {
             player.sendStatusMessage(player.playStreamId, 'status', 'NetStream.Play.UnpublishNotify', 'stream is now unpublished.');
           } else {
+            Logger.log('NMS: onSocketClose');
             player.stop();
           }
         }
