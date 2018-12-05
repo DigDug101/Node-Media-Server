@@ -228,17 +228,17 @@ class NodeRtmpSession {
   }
 
   onSocketClose() {
-    // Logger.log('onSocketClose');
+    Logger.log('NMS: onSocketClose');
     this.stop();
   }
 
   onSocketError(e) {
-    // Logger.log('onSocketError', e);
+    Logger.log('NMS: onSocketError', e);
     this.stop();
   }
 
   onSocketTimeout() {
-    // Logger.log('onSocketTimeout');
+    Logger.log('NMS: onSocketTimeout');
     this.stop();
   }
 
