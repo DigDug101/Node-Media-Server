@@ -50,7 +50,7 @@ class NodeTransSession extends EventEmitter {
     mkdirp.sync(ouPath);
 
     const outputMuxingArgs = this.conf.muxerMapping || ['-c:v', vc, '-c:a', ac, '-f', 'tee', '-map', '0:a?', '-map', '0:v?'];
-    let argv = ['-loglevel', 'level+debug', '-y', '-copyts', '-fflags', 'nobuffer', '-analyzeduration', analyzeDuration, '-i', inPath, ...outputMuxingArgs, mapStr];
+    let argv = ['-loglevel', 'level+debug', '-y', '-fflags', 'nobuffer', '-analyzeduration', analyzeDuration, '-i', inPath, ...outputMuxingArgs, mapStr];
 
     Logger.ffdebug(argv.toString());
     this.ffmpeg_exec = spawn(this.conf.ffmpeg, argv);
